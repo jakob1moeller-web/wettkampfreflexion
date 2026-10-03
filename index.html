@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wettkampfreflexion – Laufgruppe</title>
+<style>
+:root{--bg:#f5f6f4;--card:#fff;--text:#17201b;--muted:#657069;--line:#d8ddd9;--accent:#176b43;--accent2:#e7f2ec;--danger:#9b2c2c}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.45}.wrap{max-width:760px;margin:auto;padding:28px 16px 60px}header{margin-bottom:22px}h1{font-size:clamp(1.7rem,5vw,2.4rem);margin:0 0 5px}header p{margin:0;color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0}.mode{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mode input{position:absolute;opacity:0}.mode label{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;font-weight:650;cursor:pointer}.mode input:checked+label{border-color:var(--accent);background:var(--accent2);color:var(--accent)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin:16px 0}.field:first-child{margin-top:0}.field:last-child{margin-bottom:0}label,.label{display:block;font-weight:650;margin-bottom:7px}.help{font-size:.9rem;color:var(--muted);margin:-2px 0 8px}input[type=text],input[type=date],textarea{width:100%;font:inherit;border:1px solid #bfc7c1;border-radius:10px;padding:12px;background:#fff;color:var(--text)}textarea{min-height:110px;resize:vertical}input:focus,textarea:focus{outline:3px solid rgba(23,107,67,.16);border-color:var(--accent)}.scale{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}.scale input{position:absolute;opacity:0}.scale label{margin:0;text-align:center;padding:9px 0;border:1px solid var(--line);border-radius:8px;cursor:pointer}.scale input:checked+label{background:var(--accent);color:white;border-color:var(--accent)}.legend{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;margin-top:6px}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:13px 18px;cursor:pointer}.primary{background:var(--accent);color:#fff}.secondary{background:#e9ecea;color:var(--text)}button:disabled{opacity:.5;cursor:not-allowed}.notice{font-size:.9rem;color:var(--muted);margin-top:10px}.status{margin-top:12px;font-weight:600}.error{color:var(--danger)}.hidden{display:none}.goal{border-left:3px solid var(--line);padding-left:12px;margin:13px 0}@media(max-width:560px){.grid{grid-template-columns:1fr}.card{padding:16px}.scale{gap:3px}.scale label{font-size:.85rem}.wrap{padding-top:18px}}
+</style>
+</head>
+<body><main class="wrap">
+<header><h1>Wettkampfreflexion</h1><p>Laufgruppe · VfL 1860 Marburg</p></header>
+<form id="form">
+<section class="card"><div class="label">Wann füllst du die Reflexion aus?</div><div class="mode">
+<input id="before" name="phase" value="vorher" type="radio" checked><label for="before">Vor dem Wettkampf</label>
+<input id="after" name="phase" value="nachher" type="radio"><label for="after">Nach dem Wettkampf</label></div></section>
+<section class="card"><div class="grid"><div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required autocomplete="name"></div><div class="field"><label for="event">Wettkampf</label><input id="event" name="event" type="text" required></div></div><div class="field"><label for="date">Datum</label><input id="date" name="date" type="date" required></div></section>
+<section id="pre" class="card">
+<div class="field"><div class="label">1. Welche Ziele setzt du dir für den Wettkampf?</div>
+<div class="goal"><label for="optimal">Optimalziel</label><div class="help">Wenn wirklich alles gut läuft – was ist möglich?</div><textarea id="optimal" name="optimal"></textarea></div>
+<div class="goal"><label for="realistic">Realistisches Ziel</label><div class="help">Was traust du dir mit deiner aktuellen Form zu?</div><textarea id="realistic" name="realistic"></textarea></div>
+<div class="goal"><label for="minimum">Minimalziel</label><div class="help">Was willst du mindestens erreichen?</div><textarea id="minimum" name="minimum"></textarea></div></div>
+<div class="field"><label for="goodrace">2. Woran würdest du unabhängig vom Ergebnis erkennen, dass es ein guter Wettkampf war?</label><textarea id="goodrace" name="goodrace"></textarea></div>
+<div class="field"><label for="strategy">3. Wie willst du den Wettkampf angehen?</label><div class="help">Zum Beispiel Anfangstempo, Zwischenzeiten, Position im Feld oder Rennstrategie.</div><textarea id="strategy" name="strategy"></textarea></div>
+<div class="field"><label for="difficulty">4. Was könnte schwierig werden und wie willst du darauf reagieren?</label><textarea id="difficulty" name="difficulty"></textarea></div>
+<div class="field"><div class="label">5. Wie schätzt du deine aktuelle Form ein? – 1 bis 10</div><div class="scale" id="formScale"></div><div class="legend"><span>1 · überhaupt nicht leistungsfähig</span><span>10 · absolute Topform</span></div></div>
+</section>
+<section id="post" class="card hidden">
+<div class="field"><div class="label">1. Wie zufrieden bist du mit deinem Wettkampf? – 1 bis 10</div><div class="scale" id="satisfactionScale"></div></div>
+<div class="field"><label for="worked">2. Was hat so funktioniert, wie du es dir vorher vorgenommen hattest?</label><textarea id="worked" name="worked"></textarea></div>
+<div class="field"><label for="failed">3. Was hat nicht funktioniert – und woran lag es deiner Einschätzung nach?</label><textarea id="failed" name="failed"></textarea></div>
+<div class="field"><label for="different">4. Was würdest du beim nächsten vergleichbaren Wettkampf anders machen?</label><textarea id="different" name="different"></textarea></div>
+<div class="field"><label for="takeaway">5. Was willst du aus diesem Wettkampf für dein Training oder den nächsten Wettkampf mitnehmen?</label><textarea id="takeaway" name="takeaway"></textarea></div>
+</section>
+<section class="card"><div class="actions"><button class="primary" type="submit">Reflexion absenden</button><button class="secondary" type="reset">Eingaben löschen</button></div><div id="status" class="status" aria-live="polite"></div></section>
+</form></main>
+<script>
+const ENDPOINT='';
+const form=document.querySelector('#form'), pre=document.querySelector('#pre'), post=document.querySelector('#post'), status=document.querySelector('#status');
+function scale(root,name){for(let i=1;i<=10;i++){const input=document.createElement('input');input.type='radio';input.name=name;input.value=i;input.id=name+i;const label=document.createElement('label');label.htmlFor=input.id;label.textContent=i;root.append(input,label)}}
+scale(document.querySelector('#formScale'),'form_rating'); scale(document.querySelector('#satisfactionScale'),'satisfaction');
+function phase(){const before=document.querySelector('#before').checked;pre.classList.toggle('hidden',!before);post.classList.toggle('hidden',before)}
+form.addEventListener('change',e=>{if(e.target.name==='phase')phase()});
+form.addEventListener('reset',()=>setTimeout(()=>{phase();status.textContent=''},0));
+form.addEventListener('submit',async e=>{e.preventDefault();status.className='status';if(!form.reportValidity())return;if(!ENDPOINT){status.className='status error';status.textContent='Das Formular ist fertig. Für den echten Mailversand muss noch der Versand-Endpunkt eingetragen werden.';return;}const btn=form.querySelector('.primary');btn.disabled=true;status.textContent='Wird gesendet …';try{const data=Object.fromEntries(new FormData(form).entries());const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Reflexion wurde erfolgreich gesendet.';form.reset()}catch{status.className='status error';status.textContent='Der Versand hat nicht funktioniert. Bitte versuche es erneut.'}finally{btn.disabled=false}});
+phase();
+</script></body></html>
