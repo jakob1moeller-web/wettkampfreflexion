@@ -34,7 +34,7 @@
 <section class="card"><div class="actions"><button class="primary" type="submit">Reflexion absenden</button><button class="secondary" type="reset">Eingaben löschen</button></div><div id="status" class="status" aria-live="polite"></div></section>
 </form></main>
 <script>
-const ENDPOINT='';
+const ENDPOINT='https://puwettkampfreflexion.jakob1moeller.workers.dev/';
 const form=document.querySelector('#form'), pre=document.querySelector('#pre'), post=document.querySelector('#post'), status=document.querySelector('#status');
 function scale(root,name){for(let i=1;i<=10;i++){const input=document.createElement('input');input.type='radio';input.name=name;input.value=i;input.id=name+i;const label=document.createElement('label');label.htmlFor=input.id;label.textContent=i;root.append(input,label)}}
 scale(document.querySelector('#formScale'),'form_rating'); scale(document.querySelector('#satisfactionScale'),'satisfaction');
